@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath('../../src/models'))
 # -- Project information -----------------------------------------------------
 
 project = 'hw6-hmm-viterbi'
-copyright = '2023, Andrew Blair'
-author = 'Andrew Blair'
+copyright = '2023, Joaquín Magaña'
+author = 'Joaquín Magaña'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1.0'

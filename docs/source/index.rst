@@ -26,10 +26,15 @@ Please evaluate the project deliverable and briefly answer the following specula
 
 1. Speculate how the progenitor cardiomyocyte Hidden Markov Model and primitive cardiomyocyte regulatory observations and inferred hidden states might change if the model design's sliding window (default set to 60 kilobases) were to increase or decrease?
 
+Generally speaking, the observed and hidden states would likely change any time the sliding window size is adjusted. As the sliding window size is adjusted, the accessible chromatin regions captured in the window by CRE selection would also shift. If the size decreases, perhaps hidden states become more specific, but you might less accurate emission probabilities and hidden state sequence predictions as they might have less effect on observed states. The converse might also be true - where a larger sliding window might group more hidden states together with more accurate emission probabilities, but less biologicall informative results.
+
 2. How would you recommend integrating additional genomics data (i.e., histone and transcription factor ChIP-seq data) to update or revise the progenitor cardiomyocyte Hidden Markov Model? In your updated/revised model, how would you define the observation and hidden states, and the prior, transition, and emission probabilities? Using the updated/revised design, what new testable hypotheses would you be able to evaluate and/or disprove?
+
+The first step to integrating any additional genomics data would be harmonizing it to make sure it can be used in tandem with ATAC-seq. You would then need to completely redefine at least the hidden states based on what data is being provided (new information to explain what is observed). So - the emission probabilities would still include the original observation states, but you would need to calculate new probabilities for the incoming sources of data.
 
 3. Following functional characterization (i.e., MPRA or CRISPRi/a) of progenitor and primitive cardiomyocytes, consider all possible scenarios for recommending how to update or revise our genomic annotation for *cis*-candidate regulatory elements (cCREs) and candidate regulatory elements (CREs)?
 
+Having functional characterization means we can use that new data as our observed states, with the original genomic annotations as the hidden states to infer any relationship between cCREs and CREs. Then we could re-do our original experiment with only annotations where the hidden cCRE states matched the observed CRE states.
 
 Models Package 
 ======================
