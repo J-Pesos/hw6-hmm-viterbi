@@ -90,7 +90,9 @@ def test_user_case_one():
     
     # Find the best hidden state path for our observation states
     use_case_decoded_hidden_states = use_case_one_viterbi.best_hidden_state_sequence(use_case_one_data['observation_states'])
-    assert np.alltrue(use_case_decoded_hidden_states == use_case_one_data['hidden_states'])
+    hid_state_sequence = np.array(['no-traffic', 'no-traffic', 'traffic', 'traffic', 'traffic', 'no-traffic'])
+
+    assert np.alltrue(use_case_decoded_hidden_states == hid_state_sequence)
 
 
 def test_user_case_two():
